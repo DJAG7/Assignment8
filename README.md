@@ -87,9 +87,44 @@ def create_asg(name, launch_configuration_name):
 create_asg('my-app-asg', launch_configuration_name)
 ```
 # Setup Steps
+Things that need to be replaced in the code
 
-# Customization
-Things that need to be replaced in the code-
+### General AWS Resource Identifiers and Configuration Details:
+
+- **Region Identifier**: Replace `eu-west-2` with the AWS region in which you are deploying your resources. (Line numbers: Various, including but not limited to lines 8, 14, 20, etc.)
+- **Account ID**: Replace `xxxxxxxxxxxxx` in ARNs with your AWS account ID. (e.g., Line 13 for `target_group_arn`, Line 14 for `sns_topic_arn`)
+
+### EC2 Configuration:
+
+- **AMI ID (`ami-xxxxxxxxxxxx`)**: Choose an AMI that is compatible with your application requirements. This can be found in the EC2 Dashboard under "AMIs." (Lines 106, 128)
+- **VPC ID (`vpc-xxxxxxxxxxxxx`)**: The ID of the VPC where you want to deploy your resources. Found in the VPC Dashboard. (Line 84)
+- **Subnet IDs (`subnet-xxxxxxxxxxxxx`)**: The IDs of the subnets for deploying the EC2 instances and ALB. Found in the VPC Dashboard under "Subnets." (Lines 85, 196, 250)
+- **Key Pair Name (`xxxxxxxxxxxxx`)**: The name of the EC2 Key Pair for SSH access to the instances. Found or created in the EC2 Dashboard under "Key Pairs." (Line 86)
+- **Security Group ID (`sg-xxxxxxxxxxxx`)**: The ID of the Security Group to associate with the EC2 instances and ALB. Found in the EC2 Dashboard under "Security Groups." (Lines 104, 195)
+
+### S3 Configuration:
+
+- **Bucket Name (`xxxxxxxxxxxxx`)**: Choose a globally unique name for the S3 bucket. (Lines 72, 191)
+
+### Elastic Load Balancing (ELB) Configuration:
+
+- **Target Group ARN**: After creating a target group in the ELB service, replace `arn:aws:elasticloadbalancing:eu-west-2:xxxxxxxxxxxx:targetgroup/xxxxxxxxxxxxx/xxxxxxxxxxxxx` with the actual ARN. (Lines 13, 206)
+
+### Simple Notification Service (SNS) Configuration:
+
+- **SNS Topic ARN**: After creating an SNS topic, replace `arn:aws:sns:eu-west-2:xxxxxxxxxxxxx:xxxxxxxxxxxxx.fifo` with the actual ARN. (Line 14)
+
+### Auto Scaling Configuration:
+
+- **Launch Configuration Names**: Provide unique names for the launch configurations for frontend and backend instances. (Lines 232, 239)
+- **Auto Scaling Group Name**: Provide a name for the Auto Scaling Group. (Line 250)
+
+### Additional Details:
+
+- **Phone Numbers (`+91xxxxxxxxxx`)**: Replace with actual phone numbers to subscribe to SMS notifications. (Line 168)
+- **Email Addresses (`example@gmail.com`)**: Replace with actual email addresses to subscribe to email notifications. (Line 173)
+
+Ensure that you have the necessary permissions to create and manage these resources in your AWS account.
 
 
 
